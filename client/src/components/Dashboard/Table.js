@@ -1,10 +1,40 @@
-import React, {useState} from "react";
+import React, {useMemo,useState} from "react";
 import { useTable, useFilters } from "react-table";
 
-export default function Table({ columns, data }) {
+export default function Table({ data }) {
   
   const [filterInput, setFilterInput] = useState("");
   // Use the state and functions returned from useTable to build your UI
+
+  const columns = useMemo(
+    () => [
+      {
+        // first group - TV Show
+        Header: "Frequency of different cases",
+        // First group columns
+        columns: [
+          {
+            Header: "Countries",
+            accessor: "Country,Other"
+          },
+          {
+            Header: "Total Cases",
+            accessor: "TotalCases"
+          },
+          {
+            Header: "Total Recovered",
+            accessor: "TotalRecovered"
+          },
+          {
+            Header: "Total Deaths",
+            accessor: "TotalDeaths"
+          },
+        ]
+      },
+    ],
+    []
+  );
+
   const {
     getTableProps,
     getTableBodyProps,
