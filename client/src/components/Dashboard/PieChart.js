@@ -1,5 +1,6 @@
 import React from "react";
 import { Pie } from 'react-chartjs-2';
+import './PieChart.css'
 
 const PieChart = ({ data }) => {
 console.log('callingfrom bar ' + JSON.stringify(data))
@@ -24,7 +25,8 @@ console.log('callingfrom bar ' + JSON.stringify(data))
             borderWidth: 1
           }]
         }}
-        options={{}}
+        options={{
+        }}
       />
     </div>
   )

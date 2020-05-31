@@ -1,0 +1,14 @@
+/* #BarChart { */
+    /* position: relative;
+    margin: auto; */
+    /* height: 800vh;
+    width: 30vw;
+    }
+     */
+
+#BarChart {
+    height:45%;
+    width:45%;
+    
+    /* background-color: red; */
+}

@@ -1,11 +1,36 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import BarChart from './BarChart';
 import PieChart from './PieChart';
-import Table from './Table';
+import DataTable from './Table';
 import MapChart from './Map';
+import Paper from '@material-ui/core/Paper';
+
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import './sidebyside.css'
+
+//For top title
+
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
 
 export default function Dashboard() {
+  const classes = useStyles();
 
   const [mapData, setMapdata] = useState();
   const [tableData, setTabledata] = useState();
@@ -13,31 +38,67 @@ export default function Dashboard() {
   const [sendData, setSendData] = useState(false);
 
   useEffect(() => {
-    function fetchData() {
       const result = [axios.get('http://localhost:8000/data'), axios.get('http://localhost:8000/aggregateData')]
       Promise.all(result).then(([data, aggregateData]) => {
         setMapdata([data.data])
         setTabledata([data.data])
-        setChartdata([aggregateData.data])
+        setChartdata(aggregateData.data)
         setSendData(true)
       })
-    }
-    fetchData()
   }, [])
 
+async function newfetchData(e) {
+  const result = await axios.get(`http://localhost:8000/aggregateDatadisposable?continent=${e.target.value}`)
+  setChartdata([result.data])
+  setSendData(true)
+}
 
-  console.log(mapData)
+useEffect(()=>{
+  newfetchData()
+},[])
   console.log(chartData)
 
   return (
     <div className="App">
-      <div>
-        {sendData ? <MapChart data={mapData} /> : null}
-        {sendData ? <BarChart data={chartData} /> : null}
-        {sendData ? <PieChart data={chartData} /> : null}
-        {/* {sendData ? <Table columns={columns} data={ddata} />:null} */}
-        {sendData ? <Table data={tableData[0]} />:null}
+      <div className={classes.root}>
+      <AppBar style={{ background: '#2E3B55' }} position="static">
+        <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+            Covid-19 Dashboard
+          </Typography>
+        </Toolbar>
+      </AppBar>
       </div>
+      <p class="MapTitle">Cases across World(World Map)</p>
+      <div id = "Map">
+      {sendData ? <MapChart data={mapData} /> : null}
+      </div>
+
+      <p class="ChartsTitle">Cases across World(Visual Representation)</p>
+
+      <FormControl className = {classes.formControl}>
+        <InputLabel id = "Select Continent" >Select Continent</InputLabel>
+        <Select name = "continent" id = "continent" onChange={newfetchData}>
+          <MenuItem value = "All">World</MenuItem>
+          <MenuItem value = "Europe">Europe</MenuItem>
+          <MenuItem value = "NorthAmerica">North America</MenuItem>
+          <MenuItem value = "Asia">Asia</MenuItem>
+          <MenuItem value = "SouthAmerica">South America</MenuItem>
+          <MenuItem value = "Africa">Africa</MenuItem>
+          <MenuItem value = "AustraliaOceania">Australia/Oceania</MenuItem>
+        </Select>
+      </FormControl>
+      
+      <div id = "Chart">
+      <div id = "BarChart" >{sendData ? <BarChart  data={chartData}  /> : null}</div>
+      <div id = "PieChart">{sendData ? <PieChart  data={chartData}  /> : null}</div>
+      
+      </div>
+      <p class="TableTitle">Cases across World(Tabular Representation)</p>
+      <div id = "Table">
+        {sendData ? <DataTable data={tableData[0]} />:null}
+      </div>
+      
     </div>
   );
 }

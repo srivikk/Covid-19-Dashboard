@@ -1,10 +1,11 @@
 import React from "react";
 import { Bar } from 'react-chartjs-2';
+import './BarChart.css'
 
 const BarChart = ({ data }) => {
   return (
     <div className="chart">
-      <Bar
+      <Bar 
         data={
           {
             labels: ['TotalCases', 'TotalRecovered', 'TotalDeaths'],
@@ -21,7 +22,8 @@ const BarChart = ({ data }) => {
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
               ],
-              borderWidth: 1
+              borderWidth: 1,
+              // barThickness: 6
             }]
           }
         }
@@ -30,7 +32,7 @@ const BarChart = ({ data }) => {
           title: {
             display: true,
             text: 'Frequency of different cases'
-          }
+          },responsiv: false
         }}
       />
     </div>

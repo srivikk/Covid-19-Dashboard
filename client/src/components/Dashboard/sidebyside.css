@@ -1,0 +1,15 @@
+#Chart{padding-left: 10%; align-items: center; display:flex; flex-direction:row;}
+
+
+
+p.MapTitle{
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+p.ChartsTitle{
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+p.TableTitle{
+    font-family: Impact, Charcoal, sans-serif;
+}
