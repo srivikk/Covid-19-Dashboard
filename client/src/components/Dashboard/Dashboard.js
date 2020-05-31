@@ -38,7 +38,7 @@ export default function Dashboard() {
   const [sendData, setSendData] = useState(false);
 
   useEffect(() => {
-      const result = [axios.get('http://localhost:3001/data'), axios.get('http://localhost:3001/aggregateData')]
+      const result = [axios.get('/data'), axios.get('/aggregateData')]
       Promise.all(result).then(([data, aggregateData]) => {
         setMapdata([data.data])
         setTabledata([data.data])
@@ -48,7 +48,7 @@ export default function Dashboard() {
   }, [])
 
 async function newfetchData(e) {
-  const result = await axios.get(`http://localhost:3001/aggregateDatadisposable?continent=${e.target.value}`)
+  const result = await axios.get(`/aggregateDatadisposable?continent=${e.target.value}`)
   setChartdata([result.data])
   setSendData(true)
 }
