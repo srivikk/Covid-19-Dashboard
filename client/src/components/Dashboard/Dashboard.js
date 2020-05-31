@@ -79,7 +79,7 @@ useEffect(()=>{
       <FormControl className = {classes.formControl}>
         <InputLabel id = "Select Continent" >Select Continent</InputLabel>
         <Select name = "continent" id = "continent" onChange={newfetchData}>
-          <MenuItem value = "All">World</MenuItem>
+          <MenuItem selected value = "All">World</MenuItem>
           <MenuItem value = "Europe">Europe</MenuItem>
           <MenuItem value = "NorthAmerica">North America</MenuItem>
           <MenuItem value = "Asia">Asia</MenuItem>
