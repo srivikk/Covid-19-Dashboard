@@ -25,9 +25,12 @@ const MapChart = ({data}) => {
   return (
     <>
       <ReactTooltip>{tooltipContent}</ReactTooltip>
-      <ComposableMap data-tip="" projectionConfig={{scale:150}}>
-        <ZoomableGroup>
-        <Geographies geography={geoUrl}>
+      <ComposableMap width={800} height={400} style={{ width: "100%", height: "auto" }} data-tip="" projectionConfig={{
+        scale: 155,
+        rotation: [-11, 0, 0],
+      }}>
+        <ZoomableGroup disablePanning zoom={1}>
+        <Geographies geography={geoUrl} disableOptimization>
         {({ geographies }) =>
             geographies.map(geo => {
               const d = data[0].find(s => s.ISO3 === geo.properties.ISO_A3);

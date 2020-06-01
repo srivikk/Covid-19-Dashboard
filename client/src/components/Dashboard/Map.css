@@ -1,29 +1,4 @@
-/* #App {
-    position:relative;
-    width:600px;
-    margin:0 auto;
-    height:100%;      */
-    /* background-color:Red;     */
-/* } */
-
-
 #Map {
-    /* height:15%; */
-    /* top: 0; */
-    /* height: 60px; */
-     /* 4. Setting fixed height elements to absolute */
-    /* width: 100%; */
-    /* display: inline-block; */
-  /* vertical-align: middle; */
-    /* height: 30%; */
-    /* border-width: top; */
-    /* height:15%;
-    width:50%;
-     */
-    /* background-color: red; */
-    /* height:45%;
-    width:45%;
-    align-items: center; */
     width: 1200px;
     height: 800px;
 

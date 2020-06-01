@@ -18,6 +18,5 @@ app.listen(port, function () {
 });
 
 app.use('/admin/static', express.static(path.join(__dirname, 'client/build/static')))
-app.use('/*', express.static(path.join(__dirname, 'client/build')))
-// app.use(apiroutes);
-app.use(apiroutes)
+// app.use('/*', express.static(path.join(__dirname, 'client/build')))
+app.use(apiroutes);

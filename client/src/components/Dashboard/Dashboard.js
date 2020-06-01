@@ -4,7 +4,7 @@ import BarChart from './BarChart';
 import PieChart from './PieChart';
 import DataTable from './Table';
 import MapChart from './Map';
-import Paper from '@material-ui/core/Paper';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -20,6 +20,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -59,7 +62,7 @@ useEffect(()=>{
   console.log(chartData)
 
   return (
-    <div className="App">
+    <div>
       <div className={classes.root}>
       <AppBar style={{ background: '#2E3B55' }} position="static">
         <Toolbar>
@@ -70,9 +73,10 @@ useEffect(()=>{
       </AppBar>
       </div>
       <p class="MapTitle">Cases across World(World Map)</p>
-      <div id = "Map">
-      {sendData ? <MapChart data={mapData} /> : null}
-      </div>
+      <React.Fragment>
+        <CssBaseline />
+        {sendData ? <MapChart data={mapData} /> : null}
+      </React.Fragment>
 
       <p class="ChartsTitle">Cases across World(Visual Representation)</p>
 
