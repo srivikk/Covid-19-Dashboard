@@ -41,68 +41,70 @@ export default function Dashboard() {
   const [sendData, setSendData] = useState(false);
 
   useEffect(() => {
-      const result = [axios.get('/data'), axios.get('/aggregateData')]
-      Promise.all(result).then(([data, aggregateData]) => {
-        setMapdata([data.data])
-        setTabledata([data.data])
-        setChartdata(aggregateData.data)
-        setSendData(true)
-      })
+    const result = [axios.get('/api/data'), axios.get('/api/aggregateData')]
+    Promise.all(result).then(([data, aggregateData]) => {
+      setMapdata([data.data])
+      setTabledata([data.data])
+      setChartdata([aggregateData.data])
+      setSendData(true)
+    })
   }, [])
 
-async function newfetchData(e) {
-  const result = await axios.get(`/aggregateDatadisposable?continent=${e.target.value}`)
-  setChartdata([result.data])
-  setSendData(true)
-}
+  async function newfetchData(e) {
+    if (!!e) {
+      const result = await axios.get(`/api/aggregateDatadisposable?continent=${e.target.value}`)
+      setChartdata([result.data])
+      setSendData(true)
+    }
+  }
 
-useEffect(()=>{
-  newfetchData()
-},[])
+  useEffect(() => {
+    newfetchData()
+  }, [])
   console.log(chartData)
 
   return (
     <div>
       <div className={classes.root}>
-      <AppBar style={{ background: '#2E3B55' }} position="static">
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Covid-19 Dashboard
+        <AppBar style={{ background: '#2E3B55' }} position="static">
+          <Toolbar>
+            <Typography variant="h6" className={classes.title}>
+              Covid-19 Dashboard
           </Typography>
-        </Toolbar>
-      </AppBar>
+          </Toolbar>
+        </AppBar>
       </div>
-      <p class="MapTitle">Cases across World(World Map)</p>
+      <p className="MapTitle">Cases across World(World Map)</p>
       <React.Fragment>
         <CssBaseline />
         {sendData ? <MapChart data={mapData} /> : null}
       </React.Fragment>
 
-      <p class="ChartsTitle">Cases across World(Visual Representation)</p>
+      <p className="ChartsTitle">Cases across World(Visual Representation)</p>
 
-      <FormControl className = {classes.formControl}>
-        <InputLabel id = "Select Continent" >Select Continent</InputLabel>
-        <Select name = "continent" id = "continent" onChange={newfetchData}>
-          <MenuItem selected value = "All">World</MenuItem>
-          <MenuItem value = "Europe">Europe</MenuItem>
-          <MenuItem value = "NorthAmerica">North America</MenuItem>
-          <MenuItem value = "Asia">Asia</MenuItem>
-          <MenuItem value = "SouthAmerica">South America</MenuItem>
-          <MenuItem value = "Africa">Africa</MenuItem>
-          <MenuItem value = "AustraliaOceania">Australia/Oceania</MenuItem>
+      <FormControl className={classes.formControl}>
+        <InputLabel id="Select Continent" >Select Continent</InputLabel>
+        <Select name="continent" id="continent" onChange={newfetchData}>
+          <MenuItem selected value="All">World</MenuItem>
+          <MenuItem value="Europe">Europe</MenuItem>
+          <MenuItem value="NorthAmerica">North America</MenuItem>
+          <MenuItem value="Asia">Asia</MenuItem>
+          <MenuItem value="SouthAmerica">South America</MenuItem>
+          <MenuItem value="Africa">Africa</MenuItem>
+          <MenuItem value="AustraliaOceania">Australia/Oceania</MenuItem>
         </Select>
       </FormControl>
-      
-      <div id = "Chart">
-      <div id = "BarChart" >{sendData ? <BarChart  data={chartData}  /> : null}</div>
-      <div id = "PieChart">{sendData ? <PieChart  data={chartData}  /> : null}</div>
-      
+
+      <div id="Chart">
+        <div id="BarChart" >{sendData ? <BarChart data={chartData} /> : null}</div>
+        <div id="PieChart">{sendData ? <PieChart data={chartData} /> : null}</div>
+
       </div>
-      <p class="TableTitle">Cases across World(Tabular Representation)</p>
-      <div id = "Table">
-        {sendData ? <DataTable data={tableData[0]} />:null}
+      <p className="TableTitle">Cases across World(Tabular Representation)</p>
+      <div id="Table">
+        {sendData ? <DataTable data={tableData[0]} /> : null}
       </div>
-      
+
     </div>
   );
 }

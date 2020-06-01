@@ -3,6 +3,7 @@ import { Bar } from 'react-chartjs-2';
 import './BarChart.css'
 
 const BarChart = ({ data }) => {
+  console.log(data)
   return (
     <div className="chart">
       <Bar 

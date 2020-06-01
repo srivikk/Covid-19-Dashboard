@@ -15,7 +15,7 @@ const fs = require('fs');
 
 const docs = JSON.parse(fs.readFileSync('data.json', 'utf8'));
 
-// const excludedList = ["NorthAmerica", "SouthAmerica", "Europe", "", "Asia", "Africa", "Oceania", "World"]
+const excludedList = ["NorthAmerica", "SouthAmerica", "Europe", "", "Asia", "Africa", "Oceania", "World"]
 // const covid_data = mongoose.model('Covid',
 //     new Schema({}),
 //     'covid_data');
@@ -39,12 +39,14 @@ app.get("/data", (req, res) => {
     transformedDocs = transformedDocs.filter(function (el) {
         return el != null;
     })
+    // console.log(transformedDocs)
     res.send(transformedDocs);
     //     }
     // });
 });
 
 app.get("/aggregateData", (req, res) => {
+    console.log("I am here for agg data")
     // covid_data.find({ "Country,Other": "World" }, (err, docs) => {
     //     if (err) {
     //         console.log(err);
@@ -55,13 +57,16 @@ app.get("/aggregateData", (req, res) => {
     //     }
     // });
     docs.forEach(function (doc) {
-        if (doc['Country,Other'] === "World") {
+        // console.log(doc['Country,Other'])
+        if (doc['Country,Other'] === "Mali") {
+            console.log(doc)
             res.send(doc)
         }
     })
 });
 
 app.get("/aggregateDatadisposable", (req, res) => {
+    console.log("I am here for aggData data")
     // const continent = req.query.continent;
     // covid_data.aggregate(
     //     [

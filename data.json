@@ -1,5 +1,23 @@
 [
     {
+        "_id": "5ecddd99ec73aa41d6ae1548",
+        "#": "",
+        "Country,Other": "World",
+        "TotalCases": "5684802",
+        "NewCases": "6656",
+        "TotalDeaths": "352225",
+        "NewDeaths": "571",
+        "TotalRecovered": "2430593",
+        "ActiveCases": "2901984",
+        "Serious,Critical": "53099",
+        "Tot Cases/1M pop": "729",
+        "Deaths/1M pop": "452",
+        "TotalTests": "",
+        "Tests/ 1M pop": "",
+        "Population": "",
+        "Continent": "All"
+    },
+    {
         "_id": "5ecddd9aec73aa41d6ae1549",
         "#": "1",
         "Country,Other": "USA",
