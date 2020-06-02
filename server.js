@@ -17,7 +17,8 @@ app.listen(port, function () {
      console.log("Running RestHub on port " + port);
 });
 
-console.log(path.join(__dirname, 'client/build/static'))
-app.use('/', express.static(path.join(__dirname, 'client/build/static')))
+// console.log(path.join(__dirname, 'client/build/static'))
+app.use(express.static('client/build'));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'client/build', 'index.html')));
 // app.use('/*', express.static(path.join(__dirname, 'client/build')))
 app.use("/api", apiroutes);
