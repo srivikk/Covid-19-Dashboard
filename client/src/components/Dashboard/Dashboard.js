@@ -19,6 +19,29 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
+const scalestyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'gray',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  responsiveBox: {
+    width: wp('84.5%'),
+    height: hp('17%'),
+    // borderWidth: 2,
+    // borderColor: 'orange',
+    flexDirection: 'column',
+    justifyContent: 'space-around' 
+  },
+  text: {
+    color: 'white'
+  }
+});
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -65,6 +88,7 @@ export default function Dashboard() {
 
   return (
     <div>
+      <View style={scalestyles.responsiveBox}>
       <div className={classes.root}>
         <AppBar style={{ background: '#2E3B55' }} position="static">
           <Toolbar>
@@ -74,12 +98,15 @@ export default function Dashboard() {
           </Toolbar>
         </AppBar>
       </div>
+      <div id= "MapComponent">
       <p className="MapTitle">Cases across World(World Map)</p>
       <React.Fragment>
         <CssBaseline />
         {sendData ? <MapChart data={mapData} /> : null}
       </React.Fragment>
+      </div>
 
+      <div id="ChartComponent">
       <p className="ChartsTitle">Cases across World(Visual Representation)</p>
 
       <FormControl className={classes.formControl}>
@@ -94,17 +121,19 @@ export default function Dashboard() {
           <MenuItem value="AustraliaOceania">Australia/Oceania</MenuItem>
         </Select>
       </FormControl>
-
-      <div id="Chart">
+        <div id="Chart">
         <div id="BarChart" >{sendData ? <BarChart data={chartData} /> : null}</div>
         <div id="PieChart">{sendData ? <PieChart data={chartData} /> : null}</div>
-
+        </div>
       </div>
+      
+      <div id= "Table Component">
       <p className="TableTitle">Cases across World(Tabular Representation)</p>
       <div id="Table">
         {sendData ? <DataTable data={tableData[0]} /> : null}
       </div>
-
+      </div>
+      </View>
     </div>
   );
 }
