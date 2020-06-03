@@ -126,7 +126,7 @@ export default function Dashboard() {
               <MenuItem value="AustraliaOceania">Australia/Oceania</MenuItem>
             </Select>
           </FormControl>
-            <div id="Chart">
+            <div id="graphChart">
               <div id="BarChart" >{sendData ? <BarChart data={chartData} /> : null}</div>
               <div id="PieChart">{sendData ? <PieChart data={chartData} /> : null}</div>
             </div>

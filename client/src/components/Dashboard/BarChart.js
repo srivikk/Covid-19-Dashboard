@@ -33,7 +33,8 @@ const BarChart = ({ data }) => {
           title: {
             display: true,
             text: 'Frequency of different cases'
-          },responsiv: false
+          },responsiv: false,
+          maintainAspectRatio: false
         }}
       />
     </div>

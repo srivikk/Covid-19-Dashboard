@@ -26,6 +26,7 @@ console.log('callingfrom bar ' + JSON.stringify(data))
           }]
         }}
         options={{
+          maintainAspectRatio: false
         }}
       />
     </div>

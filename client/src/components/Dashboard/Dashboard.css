@@ -15,7 +15,11 @@ body {
     width: 100%;
 }
 
-#Chart{padding-left: 10%; align-items: center; display:flex; flex-direction:row;}
+div.makeStyles-root-1{
+    position: sticky;
+}
+
+#graphChart{padding-left: 10%; align-items: center; display:flex; flex-direction:row;}
 
 /* #MapComponent{
     height: 400px;
@@ -28,6 +32,10 @@ body {
 /* #tableContent{
     height: calc(100% - 100px)
 } */
+.MapTitle, .ChartsTitle, .TableTitle{
+    text-align: center;
+}
+
 
 @media only screen and (max-width:700px) {
 
@@ -53,23 +61,39 @@ body {
         height:400px
     } */
 
-    #Chart{
+    
+    .MapTitle{
+        text-align: center;
+        padding-right: 160px;
+    }
+
+    #graphChart{
         padding-left:10%;
         align-items: flex-start;
         display:flex;
         flex-direction: column;
-        height: 444px;
+        height: 700px;
     }
-
-    /* #BarChart{
-        display:inline-block;
-        height: 283px;
+    
+    .ChartsTitle, .TableTitle{
+        text-align: center;
+        padding-right: 180px;
+    }
+     /* #BarChart{ */
+        /* display:inline-block; */
+        /* height: 500;
         width: 284px;
+    } */
+
+    .chart{
+        height: 314px;
     }
 
+    
+/* 
     #Chart #PieChart{
         display:block;
         height: 297px;
         width: 284px;
-    } */
+    }  */
 }
