@@ -1,0 +1,75 @@
+html {
+    position: relative;
+}
+
+body {
+    position: relative;
+    background-color: rgb(35,135,170);
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#app {
+    height: 100%;
+    width: 100%;
+}
+
+#Chart{padding-left: 10%; align-items: center; display:flex; flex-direction:row;}
+
+/* #MapComponent{
+    height: 400px;
+}
+
+#ChartComponent{
+    height: 500px
+} */
+
+/* #tableContent{
+    height: calc(100% - 100px)
+} */
+
+@media only screen and (max-width:700px) {
+
+    body {
+        position: relative;
+        background-color: rgb(35,135,170);
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+    /* body{
+        background-color: white;
+    } */
+    #app {
+        height: 100%;
+        width: 700px;
+    }
+    #MapComponent{
+        width: 600px;
+        height: 350px;
+    }
+    /* .tableTitle{
+        height:400px
+    } */
+
+    #Chart{
+        padding-left:10%;
+        align-items: flex-start;
+        display:flex;
+        flex-direction: column;
+        height: 444px;
+    }
+
+    /* #BarChart{
+        display:inline-block;
+        height: 283px;
+        width: 284px;
+    }
+
+    #Chart #PieChart{
+        display:block;
+        height: 297px;
+        width: 284px;
+    } */
+}
