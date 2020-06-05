@@ -72,7 +72,8 @@ canvas{
 
     #graphChart{
         padding-left:10%;
-        align-items: flex-start;
+        /* align-items: flex-start; */
+        align-items: center;
         display:flex;
         flex-direction: column;
         height: 700px;
@@ -87,12 +88,12 @@ canvas{
         height: 314px;
     }
 
-    canvas{
+    /* canvas{
 
         width:284px !important;
         height:314px !important;
       
-      } 
+      }  */
     
     #BarChart{
         padding-top: 5%;

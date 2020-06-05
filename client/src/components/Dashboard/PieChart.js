@@ -28,6 +28,7 @@ console.log('callingfrom bar ' + JSON.stringify(data))
           }]
         }}
         options={{
+          responsive: true,
           maintainAspectRatio: false
         }}
       />
