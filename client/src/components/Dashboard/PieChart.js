@@ -2,6 +2,8 @@ import React from "react";
 import { Pie } from 'react-chartjs-2';
 import './PieChart.css'
 
+
+{/* <canvas id="myChart" width="400" height="400"></canvas> */}
 const PieChart = ({ data }) => {
 console.log('callingfrom bar ' + JSON.stringify(data))
   return (
