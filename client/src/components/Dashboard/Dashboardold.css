@@ -1,0 +1,253 @@
+html {
+    position: relative;
+}
+
+body {
+    position: relative;
+    background-color: rgb(35,135,170);
+    /* background-color: green; */
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#app {
+    height: 100%;
+    width: 100%;
+}
+
+div.makeStyles-root-1{
+    position: sticky;
+}
+
+
+
+#graphChart{
+    height: 400px;
+    padding-bottom: 20%;
+}
+
+#graphChart{padding-left: 10%; align-items: center; display:flex; flex-direction:row;}
+
+canvas{
+
+    width:80% !important;
+    height:300px !important;
+  
+  }
+
+  /* #MapComponent{
+      background-color: rgb(35,135,170) ;
+  } */
+/* #MapComponent{
+    height: 400px;
+}
+
+#ChartComponent{
+    height: 500px
+} */
+
+/* #tableContent{
+    height: calc(100% - 100px)
+} */
+.MapTitle, .ChartsTitle, .TableTitle{
+    text-align: center;
+}
+
+
+/* @media only screen and (max-width:700px) {
+
+    
+    body {
+        overflow: visible;
+        position: relative;
+        background-color: rgb(35,135,170);
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #app {
+        height: 100%;
+        width: 700px;
+    }
+
+    #MapComponent{
+        width: 600px;
+        height: 350px;
+    }
+    
+    .MapTitle{
+        text-align: center;
+        padding-right: 160px;
+    }
+
+    #graphChart{
+        padding-left:10%;
+        align-items: flex-start;
+        display:flex;
+        flex-direction: column;
+        height: 700px;
+    }
+    
+    .ChartsTitle, .TableTitle{
+        text-align: center;
+        padding-right: 180px;
+    }
+
+    .chart{
+        height: 314px;
+    }
+
+    canvas{
+
+        width:284px !important;
+        height:314px !important;
+      
+      } 
+    
+    #BarChart{
+        padding-top: 5%;
+    } 
+
+    #PieChart{
+        padding-top: 19%;
+    } 
+
+    #tableContent{
+    }
+} */
+
+/* @media only screen and (max-width:700px) {
+
+    
+    body {
+        overflow: visible;
+        position: relative;
+        background-color: rgb(35,135,170);
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #app {
+        height: 100%;
+        width: 700px;
+    }
+
+    #MapComponent{
+        width: 600px;
+        height: 350px;
+    }
+    
+    .MapTitle, .ChartsTitle, .TableTitle{
+        text-align: center;
+      
+    }
+
+    #graphChart{
+        padding-left:10%;
+        align-items: flex-start;
+        display:flex;
+        flex-direction: column;
+        height: 700px;
+    }
+    
+    .ChartsTitle, .TableTitle{
+        text-align: center;
+        padding-right: 180px;
+    }
+
+    .chart{
+        height: 314px;
+        width: 180% !important; 
+    }
+
+
+    canvas{
+
+        width:284px !important;
+        height:314px !important;
+      
+      } 
+    
+    #BarChart{
+        padding-top: 7%;
+    } 
+
+    #PieChart{
+        padding-top: 25%;
+    } 
+
+    #tableContent{
+    }
+} */
+
+
+@media only screen and (max-width:700px) {
+
+    
+    body {
+        overflow: visible;
+        position: relative;
+        background-color: rgb(35,135,170);
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* #app {
+        height: 100%;
+        width: 700px;
+    } */
+
+    /* #MapComponent{
+        width: 600px;
+        height: 350px;
+    } */
+    
+    /* .MapTitle, .ChartsTitle, .TableTitle{
+        text-align: center;
+      
+    } */
+
+    #graphChart{
+        padding-left:10%;
+        align-items: flex-start;
+        display:flex;
+        flex-direction: column;
+        height: 700px;
+    }
+    
+    /* .ChartsTitle, .TableTitle{
+        text-align: center;
+        padding-right: 180px;
+    } */
+
+    .chart{
+        height: 314px;
+        width: 180% !important; 
+    }
+
+
+    canvas{
+
+        width:284px !important;
+        height:314px !important;
+      
+      } 
+    
+    #BarChart{
+        padding-top: 7%;
+    } 
+
+    #PieChart{
+        padding-top: 25%;
+    } 
+
+    /* #tableContent{
+    } */
+}
