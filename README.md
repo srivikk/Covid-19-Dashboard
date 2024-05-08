@@ -8,4 +8,4 @@ Purpose of this dashboard was to show statistics of affected population worldwid
 3. Run "npm install"
 4. Run "npm run start"
 
-Then go to the browser and enter the url <a>http://localhost:3001/</a>
+Then go to the browser and enter the url <a>http://localhost:3000/</a> to view it in browser.
